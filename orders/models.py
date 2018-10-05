@@ -46,5 +46,5 @@ class Pizza(models.Model):
   price = models.DecimalField(max_digits=4, decimal_places=2)
 
   def __str__(self):
-    return f"{self.crust.name} pizza - {self.size.name} - {self.style.name} "
+    return f"{self.crust.name} pizza - {self.size.name} - {self.style.name}"
 
