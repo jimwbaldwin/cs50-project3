@@ -1,0 +1,6 @@
+<select>
+  <option value="" disabled selected>Choose topping</option>
+  {% for topping in toppings %}
+  <option value="{{ topping }}">{{ topping }}</option>
+  {% endfor %}
+</select>

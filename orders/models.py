@@ -16,12 +16,14 @@ from django.db import models
 class PizzaCrust(models.Model):
   #Sicilian or Regular
   name = models.CharField(max_length=20)
+  sort_order = models.IntegerField()
 
   def __str__(self):
     return f"{self.name}"
 
 class PizzaStyle(models.Model):
   name = models.CharField(max_length=20)
+  sort_order = models.IntegerField()
   free_toppings = models.IntegerField()
 
   def __str__(self):
@@ -29,6 +31,7 @@ class PizzaStyle(models.Model):
 
 class PizzaSize(models.Model):
   name = models.CharField(max_length=10)
+  sort_order = models.IntegerField()
 
   def __str__(self):
     return f"{self.name}"

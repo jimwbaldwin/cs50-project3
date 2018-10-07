@@ -7,6 +7,24 @@
           {{ message }}
       </div>
   {% endif %}
+
   <h2>Pizza</h2>
+  {% for crust, styles in pizzas.items %}
+    <h3>{{ crust }}</h3>
+    {% for style, sizes in styles.items %}
+      <h4>{{ style }}</h4>
+      {% for size, details in sizes.items %}
+        {{ size }}: ${{ details.price }}
+      {% endfor %}
+      
+        {% for i in sizes|first.free_toppings %}
+        <div>{% include "orders/topping.html" %}</div>
+        {% endfor %}
+      <div>
+
+      </div>
+
+    {% endfor %}
+  {% endfor %}
   
 {% endblock %}
