@@ -14,12 +14,15 @@
     {% for style, sizes in styles.items %}
       <h4>{{ style }}</h4>
       {% for size, details in sizes.items %}
-        {{ size }}: ${{ details.price }}
-      {% endfor %}
       
-        {% for i in sizes|first.free_toppings %}
-        <div>{% include "orders/topping.html" %}</div>
+        {{ size }}: ${{ details.price }}
+        {% for i in details.free_toppings %}
+          <div>{% include "orders/topping.html" %}</div>
         {% endfor %}
+        
+      {% endfor %}
+
+    
       <div>
 
       </div>

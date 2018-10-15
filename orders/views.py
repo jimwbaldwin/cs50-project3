@@ -67,4 +67,5 @@ def menu_view(request):
         "toppings" : toppings
     }
     print(pizzas)
+    print(sizes)
     return render(request, "orders/menu.html", context)
