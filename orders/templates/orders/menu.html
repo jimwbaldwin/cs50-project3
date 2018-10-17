@@ -9,24 +9,23 @@
   {% endif %}
 
   <h2>Pizza</h2>
-  {% for crust, styles in pizzas.items %}
+  {% for crust in crusts %}
     <h3>{{ crust }}</h3>
-    {% for style, sizes in styles.items %}
+    {% for style in styles %}
       <h4>{{ style }}</h4>
-      {% for size, details in sizes.items %}
-      
-        {{ size }}: ${{ details.price }}
-        {% for i in details.free_toppings %}
-          <div>{% include "orders/topping.html" %}</div>
+      <select>
+        <option value="" disabled selected>Choose size</option>
+        {% for size in sizes %}
+          {% with pizzas|get_item:crust.name|get_item:style.name|get_item:size.name as pizza %}
+            <option value='{{ pizza|get_item:"id" }}'>{{ size}} - ${{ pizza|get_item:"price" }}</option>
+          {% endwith %}
         {% endfor %}
-        
-      {% endfor %}
 
-    
-      <div>
 
-      </div>
+        </select>
 
+
+      <div>{% include "orders/topping.html" %}</div>
     {% endfor %}
   {% endfor %}
   

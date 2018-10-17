@@ -2,9 +2,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from django.template.defaulttags import register
 
 from .models import Pizza, PizzaCrust, PizzaStyle, PizzaSize, PizzaTopping
 
+@register.filter
+def get_item(dictionary, key):
+    return dictionary.get(key)
 
 # Create your views here.
 def index(request):
